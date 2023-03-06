@@ -1,0 +1,42 @@
+.margin-right-nombres{
+    margin-right: 14rem!important;
+  }
+  .margin-right-valores{
+    margin-right: 7rem!important;
+  }
+  .margin-right-medium{
+    margin-right: 10rem!important;
+  }
+.form-control-position {
+  position: absolute;
+  top: 3px;
+  z-index: 2;
+  display: block;
+  width: 2.5rem;
+  line-height: 2.15rem;
+  line-height: 2rem;
+  text-align: center;
+}
+
+.position-relative {
+    position: relative !important;
+  }
+
+.has-icon-left .form-control-position{
+      right: auto;
+}
+.has-icon-left .form-control{
+    padding-left: 2.8rem;
+}
+
+.topeUno{
+  margin-top: -74px !important;
+}
+.topeDos{
+  margin-top: -50px !important;
+}
+
+.tamanioIcono{
+  height: 24px !important;
+}
+

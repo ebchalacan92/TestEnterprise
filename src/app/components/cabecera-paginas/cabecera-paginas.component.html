@@ -1,0 +1,16 @@
+<html>
+  <body>
+    <div style="margin-left: 380px !important;">  
+      <nav>
+      <ul id="menu">
+        <li><a [routerLink]="['enterprise']">Empresas</a></li>
+        <li><a [routerLink]="['employe']">Trabajadores</a></li>
+        <li><a [routerLink]="['department']">Departamentos</a></li>
+        <li><a [routerLink]="['department-employee']">Asignar Departamento</a></li>
+        <li><a (click)="logout()">
+          Cerrar Sesión</a></li>
+      </ul>
+    </nav>
+  </div>
+  </body>
+</html>

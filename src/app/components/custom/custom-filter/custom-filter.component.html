@@ -1,0 +1,31 @@
+<form novalidate [formGroup]="optionsForm" *ngIf="data.length > 0">
+  <div class="row">
+    <div class="col-md-6 col-12">
+      <div class="form-group">
+        <div class="controls">
+          <label for="opcion">Buscar por:</label>
+          <select id="opcion" class="form-control" required formControlName="option"
+          (change)="validateOption()">
+            <option value="0">
+              -- Seleccionar --
+            </option>
+            <option *ngFor="let item of options" value="{{item.value}}">
+              {{item.label}}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-12">
+      <div class="form-group">
+        <div class="controls">
+          <label for="ngx-filter-ref">Valor:</label>
+          <input id="ngx-filter-ref"
+                 class="form-control"
+                 [disabled]="!validOption"
+                 type="text" (keyup)="filter($event)"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

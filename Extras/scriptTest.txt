@@ -1,0 +1,96 @@
+-- CREAR PRIMERO LA BASE DE DATOS TestEnterpriseDB
+-- EN CASO DE TENER UNA VERSION ACTUAL UTILIZAR CREATE DATABASE IF NOT EXISTS mi_empresa;
+CREATE TABLE IF NOT EXISTS enterprises
+(
+  id serial NOT NULL,
+  create_by character varying(100), 
+  created_date TIMESTAMP WITH TIME ZONE,
+  modified_by character varying(100), 
+  modified_date TIMESTAMP WITH TIME ZONE,
+  status boolean,
+  address character varying(200),
+  name character varying(200),
+  phone character varying(50),
+  CONSTRAINT PK_enterprises PRIMARY KEY (id)
+  )
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE enterprises
+  OWNER TO postgres;
+
+CREATE TABLE IF NOT EXISTS employees
+(
+  id serial NOT NULL,
+  create_by character varying(100), 
+  created_date TIMESTAMP WITH TIME ZONE,
+  modified_by character varying(100), 
+  modified_date TIMESTAMP WITH TIME ZONE,
+  status boolean,
+  age Integer,
+  email character varying(50),
+  name character varying(100), 
+  position character varying(100),
+  surname character varying(100),
+  user_name character varying(50),
+  password character varying(100),
+  isAdmin boolean,
+  CONSTRAINT PK_employees PRIMARY KEY (id)
+  )
+WITH (
+  OIDS=FALSE
+);
+
+
+
+CREATE TABLE IF NOT EXISTS departments
+(
+  id serial NOT NULL,
+  create_by character varying(100), 
+  created_date TIMESTAMP WITH TIME ZONE,
+  modified_by character varying(100), 
+  modified_date TIMESTAMP WITH TIME ZONE,
+  status boolean,
+  description character varying(200), 
+  name character varying(100), 
+  phone character varying(100), 
+  id_enterprise integer NOT NULL,  
+  CONSTRAINT PK_departments PRIMARY KEY (id),
+  CONSTRAINT FK_enterprises_departments FOREIGN KEY (id_enterprise)
+      REFERENCES enterprises (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+  )
+WITH (
+  OIDS=FALSE
+);
+
+
+CREATE TABLE IF NOT EXISTS departments_employees
+(
+  id serial NOT NULL,
+  create_by character varying(100), 
+  created_date TIMESTAMP WITH TIME ZONE,
+  modified_by character varying(100), 
+  modified_date TIMESTAMP WITH TIME ZONE,
+  status boolean,
+  id_department integer NOT NULL,
+  id_employee integer NOT NULL,
+    
+  CONSTRAINT PK_departments_employees PRIMARY KEY (id),
+  CONSTRAINT FK_departments_employees_departments FOREIGN KEY (id_department)
+      REFERENCES departments (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  
+  CONSTRAINT FK_departments_employees_employees FOREIGN KEY (id_employee)
+      REFERENCES employees (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH (
+  OIDS=FALSE
+);
+--CREAMOS UN USUARIO PRINCIPAL PARA EMPEZAR A INGRESAR DATOS UNA VEZ QUE SE INGRESE AL SISTEMA
+INSERT INTO employees (create_by, created_date, modified_by,modified_date, status,age,email,name,position
+                      ,surname,user_name, password, isAdmin)
+VALUES
+(null, null, null,null,'true',30,'chalacan4@gmail.com', 'BRYAN','ADMINISTRADOR','CHALACAN','ebchalacan',
+ '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'true');

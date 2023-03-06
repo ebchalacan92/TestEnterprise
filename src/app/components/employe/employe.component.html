@@ -1,0 +1,331 @@
+<div class="jumbotron margen-interno topeUno">
+    <h1 class="display-4 text-center topeDos">Trabajador
+         <i class="fas fa-id-card"></i></h1>
+    <hr class="my-2" >
+    <div class="card-content">
+        <div class="card-body">
+                <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-tabs justify-content-left nav-justified">
+                    <li [ngbNavItem]="1">
+                      <ng-template ngbNavContent>
+                        <div class="col-md-12">
+                            <form [formGroup]="employeForm">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <diV class="form-group">
+                                          <div class="input-group">
+                                              <div class="input-group-prepend">
+                                                  <div class="input-group-text bg-white">
+                                                      <i class="fas fa-id-card"></i>
+                                                  </div>
+                                              </div>
+                                                  <input type="text" class="form-control" placeholder="Nombre" 
+                                                formControlName="name" oninput="this.value = this.value.toUpperCase()"
+                                                  [ngClass]="{ 'is-invalid': f.name.invalid && (f.name.touched || f.name.dirty),
+                                                  'is-valid': !f.name.invalid && (f.name.touched || !f.name.dirty)}">
+                                          </div>
+                                      </diV>
+                                      <diV class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text bg-white">
+                                                    <i class="fas fa-sort-numeric-up-alt"></i>
+                                                </div>
+                                            </div>
+                                                <input type="number" class="form-control" placeholder="Edad" 
+                                                formControlName="age"
+                                                [ngClass]="{ 'is-invalid': f.age.invalid && (f.age.touched || f.age.dirty),
+                                                'is-valid': !f.age.invalid && (f.age.touched || !f.age.dirty)}">
+                                        </div>
+                                    </diV>
+                                      <diV class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text bg-white">
+                                                    <i class="fas fa-person-sign"></i>
+                                                </div>
+                                            </div>
+                                                <input type="text" class="form-control" placeholder="Cargo en la empresa" 
+                                              formControlName="position" oninput="this.value = this.value.toUpperCase()"
+                                                [ngClass]="{ 'is-invalid': f.position.invalid && (f.position.touched || f.position.dirty),
+                                                'is-valid': !f.position.invalid && (f.position.touched || !f.position.dirty)}">
+                                        </div>
+                                    </diV>
+                                    <diV class="form-group">
+                                      <div class="input-group">
+                                          <div class="input-group-prepend">
+                                              <div class="input-group-text bg-white">
+                                                  <i class="fas fa-user-lock"></i>
+                                              </div>
+                                          </div>
+                                              <input type="text" class="form-control" placeholder="Usuario" 
+                                            formControlName="userName" oninput="this.value = this.value.toLowerCase()"
+                                              [ngClass]="{ 'is-invalid': f.userName.invalid && (f.userName.touched || f.userName.dirty),
+                                              'is-valid': !f.userName.invalid && (f.userName.touched || !f.userName.dirty)}">
+                                      </div>
+                                  </diV>
+                                  <div class="form-group">
+                                    <div class="controls">
+                                      <div class="form-check" style="margin-top: 1rem;">
+                                        <input type="checkbox" id="status" class="form-check-input checkbox-lg"
+                                          formControlName="status">
+                                        <label class="form-check-label" for="status">Estado</label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                    <div class="col-md-6">
+                                      <diV class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text bg-white">
+                                                    <i class="fas fa-id-card"></i>
+                                                </div>
+                                            </div>
+                                                <input type="text" class="form-control" placeholder="Apellido" 
+                                              formControlName="surname" oninput="this.value = this.value.toUpperCase()"
+                                                [ngClass]="{ 'is-invalid': f.surname.invalid && (f.surname.touched || f.surname.dirty),
+                                                'is-valid': !f.surname.invalid && (f.surname.touched || !f.surname.dirty)}">
+                                        </div>
+                                    </diV>
+                                        <diV class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text bg-white">
+                                                        <i class="fas fa-envelope-open-text"></i>
+                                                    </div>
+                                                </div>
+                                                    <input type="text" class="form-control" placeholder="Correo" 
+                                                    formControlName="email"
+                                                    [ngClass]="{ 'is-invalid': f.email.invalid && (f.email.touched || f.email.dirty),
+                                                    'is-valid': !f.email.invalid && (f.email.touched || !f.email.dirty)}">
+                                            </div>
+                                        </diV>
+
+                                        <div class="form-group">
+                                          <div class="controls">
+                                            <div class="form-check" style="margin-top: 1rem;">
+                                              <input type="checkbox" id="status" class="form-check-input checkbox-lg"
+                                                formControlName="isAdmin">
+                                              <label class="form-check-label" for="sincronizacion">Administrador</label>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <diV class="form-group">
+                                          <div class="input-group">
+                                              <div class="input-group-prepend">
+                                                  <div class="input-group-text bg-white">
+                                                      <i class="fas fa-key"></i>
+                                                  </div>
+                                              </div>
+                                                  <input type="password" class="form-control" placeholder="Contraseña" 
+                                                formControlName="password" oninput="this.value = this.value.toUpperCase()"
+                                                  [ngClass]="{ 'is-invalid': f.password.invalid && (f.password.touched || f.password.dirty),
+                                                  'is-valid': !f.password.invalid && (f.password.touched || !f.password.dirty)}">
+                                          </div>
+                                      </diV>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                   <button class="btn btn-success btn-lg btn-block" (click)= "OpenModalSave()">
+                                    <i class="fas fa-database"></i>   
+                                    Guardar
+                                </button> 
+                                <button class="btn btn-success btn-lg btn-block" (click)= "updateEmployeForm()" style="background-color: cornflowerblue;">
+                                    <i class="fas fa-sync-alt"></i>   
+                                    Refrescar
+                                </button> 
+                                </div>
+                            </form>
+                    </div>
+                    <div class="col-md-12">
+                         <h6 class="text-center">
+                            Lista Trabajadores
+                        </h6>
+                        <div class="table-responsive">
+                          <app-custom-filter [data]="listFilter" [options]="options"
+                                 (filterComplete)="filterUpdate($event)">
+                          </app-custom-filter>
+                            <table class="table table-sm my">
+                                <thead>
+                                    <tr>
+                                        <td>Nombre</td>
+                                        <td>Apellido</td>
+                                        <td>Edad</td>
+                                        <td>Correo</td>
+                                        <td>Cargo</td>
+                                        <td>Administrador</td>
+                                        <td>Creado Por</td>
+                                        <td>Fecha de Creación</td>
+                                        <td>Modificado Por</td>
+                                        <td>Fecha de Modificación</td>
+                                        <td>Estado</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let formGroup of tempData.controls; let i = index; let row = row" [formGroup] ="formGroup">
+                                      <td>
+                                        <div class="position-relative has-icon-left">
+                                          <input type="text" class="form-control margin-right-valores" 
+                                          formControlName="name">
+                                            <div class="form-control-position">
+                                              <em class="fas fa-id-card"></em>
+                                            </div>
+                                          </div>
+                                      </td>
+                                        <td>
+                                          <div class="position-relative has-icon-left">
+                                            <input type="text" class="form-control margin-right-valores" 
+                                            formControlName="surname">
+                                              <div class="form-control-position">
+                                                <em class="fas fa-id-card"></em>
+                                              </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="position-relative has-icon-left">
+                                                <input type="number" class="form-control margin-right-valores" 
+                                                formControlName="age">
+                                                  <div class="form-control-position">
+                                                    <em class="fas fa-sort-numeric-up-alt"></em>
+                                                  </div>
+                                                </div>
+                                        </td>
+                                        <td>
+                                          <div class="position-relative has-icon-left">
+                                            <input type="text" class="form-control margin-right-nombres" 
+                                            formControlName="email">
+                                              <div class="form-control-position">
+                                                <em class="fas fa-envelope-open-text"></em>
+                                              </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="position-relative has-icon-left">
+                                                <input type="text" class="form-control margin-right-valores" 
+                                          formControlName="position">
+                                                  <div class="form-control-position">
+                                                    <em class="fas fa-person-sign"></em>
+                                                  </div>
+                                                </div>
+                                        </td>
+                                        <td>
+                                          <div class="controls">
+                                            <div class="form-check" style="margin-top: 1rem;">
+                                              <input type="checkbox" id="status-1" class="form-check-input checkbox-lg"
+                                                formControlName="isAdmin">
+                                            </div>
+                                          </div>
+                                        </td>
+                                        <td>
+                                            <div class="position-relative has-icon-left">
+                                                <input type="text" class="form-control margin-right-valores" 
+                                                formControlName="createBy">
+                                                  <div class="form-control-position">
+                                                    <em class="fas fa-user-check"></em>
+                                                  </div>
+                                                </div>
+                                        </td>
+                                        <td>
+                                          <div class="position-relative has-icon-left">
+                                            <input type="date" class="form-control margin-right-valores" 
+                                            formControlName="createdDate">
+                                              <div class="form-control-position">
+                                                <em class="fas fa-calendar-alt"></em>
+                                              </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                          <div class="position-relative has-icon-left">
+                                            <input type="text" class="form-control margin-right-valores" 
+                                            formControlName="modifiedBy">
+                                              <div class="form-control-position">
+                                                <em class="fas fa-user-edit"></em>
+                                              </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                          <div class="position-relative has-icon-left">
+                                            <input type="date" class="form-control margin-right-valores" 
+                                            formControlName="modifiedDate">
+                                              <div class="form-control-position">
+                                                <em class="fas fa-calendar-alt"></em>
+                                              </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                          <i class="fas fa-edit text-warning" style="cursor: pointer;"
+                                          (click) = "buttonEditemploye(formGroup)"></i>
+                                      </td>
+                                        <td>
+                                            <i class="far fa-trash-alt fa-lag text-danger" style="cursor: pointer;"
+                                            (click) = "openModalDelete(formGroup.get('id').value, formGroup.get('name').value)"></i>
+                                        </td>
+                                        <ng-template #modalEliminarEmploye let-c="close" let-d="dismiss">
+                                          <div class="modal-header">
+                                            <h4 class="modal-title">Confirmar Eliminar Datos Trabajador</h4>
+                                            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                                              <span aria-hidden="true">&times;</span>
+                                            </button>
+                                          </div>
+                                          <div class="modal-body">
+                                              <diV class="form-group">
+                                                  <div class="input-group">
+                                                        <p>¿Está seguro de eliminar los datos para el Trabajador: </p>
+                                                        <p> "{{nameEmployeGlobal}}" ?</p>
+                                                  </div>
+                                              </diV>
+                                          </div>
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-outline-secondarbtn btn-danger  mb-2 mb-sm-0 mr-sm-2" (click)="c('Close click')">
+                                              <i class="fas fa-sign-out-alt"></i>
+                                              Cancelar
+                                            </button>
+                                            <button type="button" class="btn btn-primary mb-2 mb-sm-0 mr-sm-2" (click)="removeEmploye(idEmployeGlobal)">
+                                              <i class="far fa-trash-alt"></i>
+                                              Elimnar</button>
+                                          </div>
+                                      </ng-template>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                      </ng-template>
+                    </li>
+                  </ul>
+                  <div class="tab-content">
+                    <div [ngbNavOutlet]="nav"></div>
+                  </div>
+                </div>
+    </div>
+</div>
+<ng-template #modalSaveEmploye let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" style="margin-left: 10px !important;">Confirmar Guardar/Editar Trabajador</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <diV class="form-group">
+            <div class="input-group">
+                  <p>¿ Está seguro de guardar los datos para Trabajador: </p>
+                  <p> "{{employeForm.controls.name.value}}" ?</p>
+            </div>
+        </diV>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-secondarbtn btn-danger  mb-2 mb-sm-0 mr-sm-2" (click)="c('Close click')">
+        <i class="fas fa-sign-out-alt"></i>
+        Cancelar
+      </button>
+      <button type="button" class="btn btn-primary mb-2 mb-sm-0 mr-sm-2" (click)="saveEmploye()">
+        <i class="fas fa-plus"></i>
+        Guardar</button>
+    </div>
+</ng-template>
